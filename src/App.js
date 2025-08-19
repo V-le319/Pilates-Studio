@@ -1,6 +1,9 @@
 
 import './App.css';
-
+import { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
+import ClassesPage from './classesPage';
 
 const heroBgStyle = {
   backgroundImage: "url('/img/421b324a8b94fb619221b444f637dad7.jpg')",
@@ -9,13 +12,31 @@ const heroBgStyle = {
   backgroundRepeat: "no-repeat",
 };
 function App() {
+
+    const Instructors = [
+        {name:"Ava" ,img:"/img/Athletic Woman Portrait.png"},
+         {name:"Kat" ,img:"/img/Woman by the Sea.png"},
+          {name:"Natalie" ,img:"/img/Woman Practicing Yoga.png"},
+           {name:"Maya" ,img:"/img/Elegant Studio Portrait.png"},
+            {name:"Olivia" ,img:"/img/Serene Woman in Athletic Wear.png"},
+              {name:"Sophie" , img:"/img/Focused Fitness Activity.png"},
+    ];
+
+   
+
   return (
+    <Router>
+      <Switch>
+        <Route path="/classesPage" component={ClassesPage} />
+        <Route path="/">
+
     <div className="min-h-screen flex flex-col bg-custom-pink px-4 py-2">
       <header className="flex justify-between items-center mb-2">
-        <p>Pilates Studio</p>
-        <button className="bg-custom-button text-white hover:bg-white duration-300 hover:text-custom-button p-2 h-6 w-30 flex items-center font-sans text-sm rounded-3xl m-0 leading-none">Explore Classes -></button>
+        <p>CoreBalance Pilates</p>
+        <button className="bg-custom-button text-white hover:bg-hover-color duration-300 p-2 h-6 w-30 flex items-center font-sans text-sm rounded-3xl m-0 leading-none">Explore Classes -></button>
       </header>
       <div className="flex flex-col items-center min-w-full">
+    
     <section className="hero w-full h-96 bg-center bg-cover bg-no-repeat text-white rounded-lg flex flex-col justify-center items-center text-4xl text-shadow-sm md:text-6xl -mb-10" style={heroBgStyle}>
           <p className="slide-in-left self-start ml-10 md:ml-52">Where movement</p>
            <p className="slide-in-right self-end mr-10 md:mr-52 ">meets mindfulness</p>
@@ -42,10 +63,12 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
     <section className="classes min-h-96 bg-white bg-opacity-60 rounded-lg mb-8">
         <div className="classes-container grid grid-cols-3 gap-4 p-4">
           <div className="relative inline-block">
-            <p className="p-2 text-sm flex items-center justify-center absolute top-3 py-1 rounded-tr-xl rounded-br-xl bg-white bg-opacity-60">Class 1</p>
+            <p className="p-2 text-sm md:text-base flex items-center justify-center absolute top-3 py-1 rounded-tr-xl rounded-br-xl bg-white bg-opacity-60">Class 1</p>
         <img src="/img/Yoga Pose Close-Up.png" className=" block h-auto max-w-full"/>
-                <button className="absolute bottom-3 right-3 px-3 py-1 bg-custom-pink hover:bg-custom-button duration-300 rounded-full flex items-center justify-center">
-        <svg className="h-4 w-4 hover:border-white" viewBox="0 0 113 113" fill="none" xmlns="http://www.w3.org/2000/svg">
+              
+              <Link to="/classesPage#class1" smooth>
+                <button className="absolute bottom-3 right-3 px-3 py-1 md:px-4 md:py-2 bg-custom-pink hover:bg-custom-button duration-300 rounded-full flex items-center justify-center">
+        <svg className="h-4 w-4 md:h-6 md:w-6 hover:border-white" viewBox="0 0 113 113" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path className="arrow-fill" d="M85.5511 63.4583H0.833374V49.5417H85.5511L46.5844 10.575L56.5 0.833344L112.167 56.5L56.5 112.167L46.5844 102.425L85.5511 63.4583Z" fill="#5C262F"/>
 </svg>
  <style jsx>{`
@@ -54,17 +77,19 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
       transition: "fill 3s ease" 
     }
   `}</style>
-</button>
-
-        </div>
+      </button>
+            </Link>
+    </div>
         <div className="relative inline-block">
-            <p className="p-2 text-sm flex items-center justify-center absolute top-3 py-1 rounded-tr-xl rounded-br-xl bg-white bg-opacity-60">Class 2</p>
+            <p className="p-2 text-sm md:text-base flex items-center justify-center absolute top-3 py-1 rounded-tr-xl rounded-br-xl bg-white bg-opacity-60">Class 2</p>
         <img src="/img/1200.png" className=" block h-auto max-w-full"/>
-        <button className="absolute bottom-3 right-3 px-3 py-1 bg-custom-pink hover:bg-custom-button duration-300 rounded-full flex items-center justify-center"> 
+
+        <Link to="/classesPage#class2">
+          <button className="absolute bottom-3 right-3 px-3 py-1 md:px-4 md:py-2 bg-custom-pink hover:bg-custom-button duration-300 rounded-full flex items-center justify-center"> 
           {/* bottom-3 and right-3 create a tighter but even margin. */}
           {/* px-3 py-1 gives the button internal padding instead of fixed height. */}
           {/* Avoid hardcoding h-6 w-16 if symmetry is critical — padding is more reliable visually. */}
-        <svg className="h-4 w-4 hover:border-white" viewBox="0 0 113 113" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className="h-4 w-4 md:h-6 md:w-6 hover:border-white" viewBox="0 0 113 113" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path className="arrow-fill" d="M85.5511 63.4583H0.833374V49.5417H85.5511L46.5844 10.575L56.5 0.833344L112.167 56.5L56.5 112.167L46.5844 102.425L85.5511 63.4583Z" fill="#5C262F"/>
 </svg>
  <style jsx>{`
@@ -74,13 +99,16 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
     }
   `}</style>
 </button>
-      
-        </div>
+</Link>
+      </div>
+        
         <div className="relative inline-block">
-            <p className="p-2 text-sm flex items-center justify-center absolute top-3 py-1 rounded-tr-xl rounded-br-xl bg-white bg-opacity-60">Class 3</p>
+            <p className="p-2 text-sm md:text-base flex items-center justify-center absolute top-3 py-1 rounded-tr-xl rounded-br-xl bg-white bg-opacity-60">Class 3</p>
         <img src="/img/Yoga Pose in Sage Green.png" className=" block h-auto max-w-full"/>
-        <button className="absolute bottom-3 right-3 px-3 py-1 bg-custom-pink hover:bg-custom-button duration-300 rounded-full flex items-center justify-center">
-        <svg className="h-4 w-4 hover:border-white" viewBox="0 0 113 113" fill="none" xmlns="http://www.w3.org/2000/svg">
+        
+        <Link to="/classesPage#class3">
+          <button className="absolute bottom-3 right-3 px-3 py-1 md:px-4 md:py-2 bg-custom-pink hover:bg-custom-button duration-300 rounded-full flex items-center justify-center">
+        <svg className="h-4 w-4 md:h-6 md:w-6 hover:border-white" viewBox="0 0 113 113" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path className="arrow-fill" d="M85.5511 63.4583H0.833374V49.5417H85.5511L46.5844 10.575L56.5 0.833344L112.167 56.5L56.5 112.167L46.5844 102.425L85.5511 63.4583Z" fill="#5C262F"/>
 </svg>
  <style jsx>{`
@@ -90,6 +118,7 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
     }
   `}</style>
 </button>
+  </Link>
         </div>
         </div>
         <p className="text-center pb-6 pt-2 md:pb-12 md:pt-6 font-sans text-lg md:text-2xl font-extralight">"Strengthen, Stretch, Shine – with Pilates."</p>
@@ -104,24 +133,33 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
 “Great workouts that are challenging but doable. I feel stronger and more balanced after every class.”</p>
       </section>
 
-  <section className="instructors min-h-96 bg-white bg-opacity-60 rounded-lg mb-8 flex flex-col items-center justify-center p-10 text-2xl font-sans font-thin">
-        <h2>Meet Our Instructors</h2>
-        <div className="grid grid-cols-5 gap-4">
-          <img className="h-32 w-32 rounded-full bg-white"/>
-          <img className="h-32 w-32 rounded-full bg-white"/>
-          <img className="h-32 w-32 rounded-full bg-white"/>
-          <img className="h-32 w-32 rounded-full bg-white"/>
-          <img className="h-32 w-32 rounded-full bg-white"/>
+  <section className="instructors min-h-96 px-8 bg-white bg-opacity-60 rounded-lg mb-8 flex flex-col items-center justify-center p-12 text-2xl font-sans font-thin">
+        <h2 className="text-3xl md:text-4xl py-4">Meet Our Instructors</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-6 gap-8 md:gap-6 py-10 md:py-14 text-lg font-sans">
+         {Instructors.map((inst, i) => (
+            <Link to="/classesPage#instructors">
+            <div key={i} className="flex flex-col items-center">
+              <img
+                src={inst.img}
+                alt="instructor picture"
+                className="h-32 w-32 rounded-full bg-white object-cover"
+                />
+              <p>{inst.name}</p>
+            </div>
+            </Link>
+         ))
+         }
       </div>
+      
     </section>
       
-    <section className="contact max-w-screen py-10 px-4 min-h-72 bg-white bg-opacity-60 rounded-lg mb-8 flex flex-wrap items-start justify-center md:grid-cols-2 gap-10">
+    <section className="contact max-w-screen py-10 px-4 min-h-72 bg-white bg-opacity-60 rounded-lg mb-8 flex flex-wrap items-start justify-center md:grid-cols-2 gap-12">
       <div className="flex flex-col">
             <img src="/img/What_is_pilates_desktop.jpg" className="w-full max-w-md mb-4"/>
         <div className="infos text-sm font-extralight flex flex-col gap-2">
           <h3 className="font-sans text-2xl text-arrow-color pb-2">Let's Connect!</h3>
           <div className="flex gap-4">
-            <img src="/img\home.png" className="h-6 w-6" />
+            <img src="/img\home.png" className="h-5 w-5"/>
             <p>1257 Willow Street, Suite 302, San Diego, CA 92103</p>
           </div>
           <div className="flex gap-4">
@@ -138,7 +176,7 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
           </div>
           <div className="flex gap-4">
             <img src="/img\logo-instagram 1.png" className="h-5 w-5"/>
-            <p>corebalancepilates</p>
+            <p>@corebalancepilates</p>
         </div>
       </div>
       </div>
@@ -148,21 +186,25 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
           <p className="text-xs font-extralight italic font-sans mb-4">Please fill out the form below and we’ll get back to you as soon as possible</p>
           
           <label className="text-sm font-sans">Full Name:</label>
-            <input className="h-6 w-96 rounded-md" placeholder="Your name" type="text" required/>
+            <input className="h-6 w-96 rounded-md p-2" placeholder="Your name" type="text" required/>
           
           <label className="text-sm font-sans">Email Address:</label>
-            <input className="h-6 w-96 rounded-md"  placeholder="Your email" type="email" required/>
+            <input className="h-6 w-96 rounded-md p-2"  placeholder="Your email" type="email" required/>
           
           <label className="text-sm font-sans">Phone Number:</label>
-            <input className="h-6 w-96 rounded-md" placeholder="your number" type="number" required/>
+            <input className="h-6 w-96 rounded-md p-2" placeholder="Your number" type="number" required/>
           
-          <label className="text-sm font-sans">Sqpecial Request</label>
-            <input className="h-20 w-96 p-2 rounded-lg text-left flex items-start" placeholder="Please type your request here"/>
+          <label className="text-sm font-sans">Special Request</label>
+            <textarea className="h-20 w-96 p-2 rounded-lg text-left flex items-start" placeholder="Please type your request here"></textarea>
         </form>
         <button type="submit" className="h-10 w-96 text-center text-white font-semibold text-xl bg-custom-button rounded-2xl hover:bg-hover-color duration-300">Submit</button>
      </div>
       </section>
     </div>  
+
+    </Route>
+         </Switch>
+    </Router>
   );
 }
 

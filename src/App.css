@@ -55,3 +55,7 @@
 .slide-in-right {
   animation: slideInRight 2s ease-out forwards;
 }
+
+.flip-horizontal {
+  transform: scaleX(-1);
+}
