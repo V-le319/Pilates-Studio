@@ -16,10 +16,15 @@ module.exports = {
         'icon-color': '#585050',
         'hover-color': '#A94C4C',
       },
+      rotate: {
+        '-90': '-90deg',
+      },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      rotate: ['responsive', 'hover', 'focus'],
+    },
   },
   plugins: [
     function ({ addUtilities, theme }) {

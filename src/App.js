@@ -1,6 +1,6 @@
 
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect, useImperativeHandle } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import ClassesPage from './classesPage';
@@ -22,6 +22,33 @@ function App() {
               {name:"Sophie" , img:"/img/Focused Fitness Activity.png"},
     ];
 
+        const[showButton, setShowButton] = useState(false);
+        const[scrolling, setScrolling] = useState(false);
+        let scrollTimeout = null;
+
+        useEffect(() => {
+          const handleScroll = () => {
+            setShowButton(false); //hide while scrolling
+            setScrolling(true);
+
+            if(scrollTimeout) {
+              clearTimeout(scrollTimeout);
+            }
+            scrollTimeout = setTimeout(() => {
+              setScrolling(false);
+              setShowButton(true);
+              }, 2000) //set timeout to show Up button after 2 seconds without scrolling
+            }
+            window.addEventListener('scroll', handleScroll);
+            return() => {
+              window.removeEventListener('scroll', handleScroll);
+              clearTimeout(scrollTimeout);
+            }
+        }, []);
+        const scrollToTop = () => {
+          window.scrollTo({top: 0, behavior: 'smooth'})
+        }
+      
    
 
   return (
@@ -33,7 +60,9 @@ function App() {
     <div className="min-h-screen flex flex-col bg-custom-pink px-4 py-2">
       <header className="flex justify-between items-center mb-2">
         <p>CoreBalance Pilates</p>
+        <Link to="/classesPage#classes">
         <button className="bg-custom-button text-white hover:bg-hover-color duration-300 p-2 h-6 w-30 flex items-center font-sans text-sm rounded-3xl m-0 leading-none">Explore Classes -></button>
+        </Link>
       </header>
       <div className="flex flex-col items-center min-w-full">
     
@@ -41,6 +70,7 @@ function App() {
           <p className="slide-in-left self-start ml-10 md:ml-52">Where movement</p>
            <p className="slide-in-right self-end mr-10 md:mr-52 ">meets mindfulness</p>
       </section>
+       <Link to="/classesPage">
           <button className="h-20 w-20 relative bg-custom-pink hover:bg-custom-button duration-300 rounded-full mb-0 flex items-center justify-center">
             <svg className="h-10 w-10 hover:border-white" viewBox="0 0 113 113" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path className="arrow-fill" d="M85.5511 63.4583H0.833374V49.5417H85.5511L46.5844 10.575L56.5 0.833344L112.167 56.5L56.5 112.167L46.5844 102.425L85.5511 63.4583Z" fill="#5C262F"/>
@@ -52,6 +82,7 @@ function App() {
     }
            `}</style>
             </button>
+            </Link>
       </div>
         
     <section className="content min-h-72 p-10 md:p-20 bg-white bg-opacity-60 rounded-lg mb-8 flex items-center justify-between gap-6">
@@ -63,10 +94,10 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
     <section className="classes min-h-96 bg-white bg-opacity-60 rounded-lg mb-8">
         <div className="classes-container grid grid-cols-3 gap-4 p-4">
           <div className="relative inline-block">
-            <p className="p-2 text-sm md:text-base flex items-center justify-center absolute top-3 py-1 rounded-tr-xl rounded-br-xl bg-white bg-opacity-60">Class 1</p>
+            <p className="p-2 text-sm md:text-base flex items-center justify-center absolute top-3 py-1 rounded-tr-xl rounded-br-xl bg-white bg-opacity-60">Beginner</p>
         <img src="/img/Yoga Pose Close-Up.png" className=" block h-auto max-w-full"/>
               
-              <Link to="/classesPage#class1" smooth>
+              <HashLink to="/classesPage#class1">
                 <button className="absolute bottom-3 right-3 px-3 py-1 md:px-4 md:py-2 bg-custom-pink hover:bg-custom-button duration-300 rounded-full flex items-center justify-center">
         <svg className="h-4 w-4 md:h-6 md:w-6 hover:border-white" viewBox="0 0 113 113" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path className="arrow-fill" d="M85.5511 63.4583H0.833374V49.5417H85.5511L46.5844 10.575L56.5 0.833344L112.167 56.5L56.5 112.167L46.5844 102.425L85.5511 63.4583Z" fill="#5C262F"/>
@@ -78,13 +109,13 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
     }
   `}</style>
       </button>
-            </Link>
+            </HashLink>
     </div>
         <div className="relative inline-block">
-            <p className="p-2 text-sm md:text-base flex items-center justify-center absolute top-3 py-1 rounded-tr-xl rounded-br-xl bg-white bg-opacity-60">Class 2</p>
+            <p className="p-2 text-sm md:text-base flex items-center justify-center absolute top-3 py-1 rounded-tr-xl rounded-br-xl bg-white bg-opacity-60">Intermediate</p>
         <img src="/img/1200.png" className=" block h-auto max-w-full"/>
 
-        <Link to="/classesPage#class2">
+        <HashLink to="/classesPage#class2">
           <button className="absolute bottom-3 right-3 px-3 py-1 md:px-4 md:py-2 bg-custom-pink hover:bg-custom-button duration-300 rounded-full flex items-center justify-center"> 
           {/* bottom-3 and right-3 create a tighter but even margin. */}
           {/* px-3 py-1 gives the button internal padding instead of fixed height. */}
@@ -99,14 +130,14 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
     }
   `}</style>
 </button>
-</Link>
+</HashLink>
       </div>
         
         <div className="relative inline-block">
-            <p className="p-2 text-sm md:text-base flex items-center justify-center absolute top-3 py-1 rounded-tr-xl rounded-br-xl bg-white bg-opacity-60">Class 3</p>
+            <p className="p-2 text-sm md:text-base flex items-center justify-center absolute top-3 py-1 rounded-tr-xl rounded-br-xl bg-white bg-opacity-60">Advanced</p>
         <img src="/img/Yoga Pose in Sage Green.png" className=" block h-auto max-w-full"/>
         
-        <Link to="/classesPage#class3">
+        <HashLink to="/classesPage#class3">
           <button className="absolute bottom-3 right-3 px-3 py-1 md:px-4 md:py-2 bg-custom-pink hover:bg-custom-button duration-300 rounded-full flex items-center justify-center">
         <svg className="h-4 w-4 md:h-6 md:w-6 hover:border-white" viewBox="0 0 113 113" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path className="arrow-fill" d="M85.5511 63.4583H0.833374V49.5417H85.5511L46.5844 10.575L56.5 0.833344L112.167 56.5L56.5 112.167L46.5844 102.425L85.5511 63.4583Z" fill="#5C262F"/>
@@ -118,7 +149,7 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
     }
   `}</style>
 </button>
-  </Link>
+  </HashLink>
         </div>
         </div>
         <p className="text-center pb-6 pt-2 md:pb-12 md:pt-6 font-sans text-lg md:text-2xl font-extralight">"Strengthen, Stretch, Shine – with Pilates."</p>
@@ -133,7 +164,8 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
 “Great workouts that are challenging but doable. I feel stronger and more balanced after every class.”</p>
       </section>
 
-  <section className="instructors min-h-96 px-8 bg-white bg-opacity-60 rounded-lg mb-8 flex flex-col items-center justify-center p-12 text-2xl font-sans font-thin">
+  <section className="flex flex-row w-screen max-w-full min-h-96 items-stretch ">
+      <div className="instructors flex-grow px-10 bg-white bg-opacity-60 rounded-lg flex flex-col items-center justify-center p-12 text-2xl font-sans font-thin">
         <h2 className="text-3xl md:text-4xl py-4">Meet Our Instructors</h2>
       <div className="grid grid-cols-2 sm:grid-cols-6 gap-8 md:gap-6 py-10 md:py-14 text-lg font-sans">
          {Instructors.map((inst, i) => (
@@ -150,10 +182,11 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
          ))
          }
       </div>
-      
+         </div> 
+          <HashLink to="/classesPage#instructors" className="w-20 bg-hover-color bg-opacity-40 rounded-tr-lg rounded-br-lg text-6xl flex text-custom-button hover:text-white duration-300 justify-center items-center">></HashLink>
     </section>
       
-    <section className="contact max-w-screen py-10 px-4 min-h-72 bg-white bg-opacity-60 rounded-lg mb-8 flex flex-wrap items-start justify-center md:grid-cols-2 gap-12">
+    <section className="contact max-w-screen py-10 px-4 min-h-72 bg-white bg-opacity-60 rounded-lg my-8 flex flex-wrap items-start justify-center md:grid-cols-2 gap-12">
       <div className="flex flex-col">
             <img src="/img/What_is_pilates_desktop.jpg" className="w-full max-w-md mb-4"/>
         <div className="infos text-sm font-extralight flex flex-col gap-2">
@@ -200,6 +233,15 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
         <button type="submit" className="h-10 w-96 text-center text-white font-semibold text-xl bg-custom-button rounded-2xl hover:bg-hover-color duration-300">Submit</button>
      </div>
       </section>
+
+         <div className="flex justify-center items-center">
+          {showButton && (
+      <button className= "fixed bottom-2 h-16 w-16 rounded-full border-2 border-hover-color hover:border-white duration-300 flex justify-center items-center" onClick={scrollToTop}>
+       <img src="/img\Vector.svg" className="h-6 w-6"/>
+        </button>
+        )}
+        </div>
+    
     </div>  
 
     </Route>

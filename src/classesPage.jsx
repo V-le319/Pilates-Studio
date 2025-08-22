@@ -1,5 +1,7 @@
 import React from 'react';
+import { HashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom';
+
 
 const ClassesPage = () => {
         const Instructors = [
@@ -35,6 +37,7 @@ const ClassesPage = () => {
             },
         ];
 
+        
   return (
     <div className="min-h-screen flex flex-col bg-custom-pink">
         <header className="w-full h-10 bg-custom-button text-white text-lg flex justify-center items-center">
@@ -44,7 +47,7 @@ const ClassesPage = () => {
         </header>
         
      <main className="px-4"> 
-        <div className="classes min-h-[600px] md:h-screen py-10 px-2 bg-white bg-opacity-60 h-auto max-w-full rounded-lg flex flex-col gap-10 items-stretch md:grid md:grid-cols-3">
+        <div id="classes" className="classes min-h-[600px] md:h-screen py-10 px-2 bg-white bg-opacity-60 h-auto max-w-full rounded-lg flex flex-col gap-10 items-stretch md:grid md:grid-cols-3">
             <section id="class1" className="grid grid-cols-2 gap-4 h-auto w-auto ">
                     <img src="/img/Yoga Pose Close-Up.png" className="w-full h-full object-cover max-h-[400px] rounded-lg"/>
                 <div>
@@ -109,8 +112,12 @@ const ClassesPage = () => {
             </section>
         </div>
 
-        <div className="intructors" id="instructors">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-6 py-10 md:py-14 text-lg font-sans">
+         <blockquote className="py-24 md:py-40 bg-custom-pink bg-opacity-10 flex justify-center items-center text-xl md:text-2xl text-center font-serif italic text-custom-button">
+                <p>“Balance isn’t something you find — it’s something you create.”</p>
+            </blockquote>
+
+        <div className="intructors bg-white bg-opacity-60 rounded-lg px-2" id="instructors">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 md:gap-6 py-10 md:py-14 text-lg font-sans">
          {Instructors.map((inst, i) => (
             <div key={i} className="flex flex-col items-center p-4">
               <img
@@ -126,6 +133,13 @@ const ClassesPage = () => {
       </div>
         </div>
     </main>  
+          <div className="flex justify-center items-center">
+         
+      <button className= "fixed bottom-2 h-16 w-16 rounded-full border-2 border-hover-color hover:border-white duration-300 flex justify-center items-center">
+       <img src="/img\Vector.svg" className="h-6 w-6"/>
+        </button>
+        
+        </div>
     </div>
   );
 };
