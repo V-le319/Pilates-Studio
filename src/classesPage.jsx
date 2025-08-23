@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom';
-
+import { useState, useEffect } from 'react';
 
 const ClassesPage = () => {
         const Instructors = [
@@ -36,6 +36,33 @@ const ClassesPage = () => {
                 bio:"Sphie is a Power Pilates® Certified Instructor and licensed physiotherapist. She integrates clinical knowledge with classical Pilates to support clients with chronic pain and post-surgical rehab.",
             },
         ];
+             
+        const[showButton, setShowButton] = useState(false);
+        const[scrolling, setScrolling] = useState(false);
+        let scrollTimeout = null;
+
+        useEffect(() => {
+          const handleScroll = () => {
+            setShowButton(false); //hide while scrolling
+            setScrolling(true);
+
+            if(scrollTimeout) {
+              clearTimeout(scrollTimeout);
+            }
+            scrollTimeout = setTimeout(() => {
+              setScrolling(false);
+              setShowButton(true);
+              }, 2000) //set timeout to show Up button after 2 seconds without scrolling
+            }
+            window.addEventListener('scroll', handleScroll);
+            return() => {
+              window.removeEventListener('scroll', handleScroll);
+              clearTimeout(scrollTimeout);
+            }
+        }, []);
+        const scrollToTop = () => {
+          window.scrollTo({top: 0, behavior: 'smooth'})
+        }
 
         
   return (
@@ -133,13 +160,19 @@ const ClassesPage = () => {
       </div>
         </div>
     </main>  
+          
           <div className="flex justify-center items-center">
-         
-      <button className= "fixed bottom-2 h-16 w-16 rounded-full border-2 border-hover-color hover:border-white duration-300 flex justify-center items-center">
-       <img src="/img\Vector.svg" className="h-6 w-6"/>
-        </button>
-        
+         {showButton && (
+            <button className= "fixed bottom-11 h-16 w-16 rounded-full border-2 border-hover-color hover:border-white duration-300 flex justify-center items-center" onClick={scrollToTop}>
+                <img src="/img\Vector.svg" className="h-6 w-6"/>
+            </button>
+            )}
         </div>
+        <footer className="h-10 max-w-screen bg-custom-button text-custom-pink text-opacity-60 text-sm font-sans flex justify-center items-center">
+        <p>Copyright 2025 Website by{' '} 
+        <a href="https://instagram.com/sleepymolecule" target="_blank" rel="noopener noreferrer" className="text-purple-400">VincyLe</a>
+        </p>
+        </footer>
     </div>
   );
 };

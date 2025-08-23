@@ -1,6 +1,6 @@
 
 import './App.css';
-import { useState, useEffect, useImperativeHandle } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import ClassesPage from './classesPage';
@@ -56,7 +56,7 @@ function App() {
       <Switch>
         <Route path="/classesPage" component={ClassesPage} />
         <Route path="/">
-
+    <div className="min-h-screen flex flex-col">
     <div className="min-h-screen flex flex-col bg-custom-pink px-4 py-2">
       <header className="flex justify-between items-center mb-2">
         <p>CoreBalance Pilates</p>
@@ -66,7 +66,7 @@ function App() {
       </header>
       <div className="flex flex-col items-center min-w-full">
     
-    <section className="hero w-full h-96 bg-center bg-cover bg-no-repeat text-white rounded-lg flex flex-col justify-center items-center text-4xl text-shadow-sm md:text-6xl -mb-10" style={heroBgStyle}>
+        <section className="hero w-full h-96 bg-center bg-cover bg-no-repeat text-white rounded-lg flex flex-col justify-center items-center text-4xl text-shadow-sm md:text-6xl -mb-10" style={heroBgStyle}>
           <p className="slide-in-left self-start ml-10 md:ml-52">Where movement</p>
            <p className="slide-in-right self-end mr-10 md:mr-52 ">meets mindfulness</p>
       </section>
@@ -186,7 +186,7 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
           <HashLink to="/classesPage#instructors" className="w-20 bg-hover-color bg-opacity-40 rounded-tr-lg rounded-br-lg text-6xl flex text-custom-button hover:text-white duration-300 justify-center items-center">></HashLink>
     </section>
       
-    <section className="contact max-w-screen py-10 px-4 min-h-72 bg-white bg-opacity-60 rounded-lg my-8 flex flex-wrap items-start justify-center md:grid-cols-2 gap-12">
+    <section className="contact max-w-screen py-10 px-4 min-h-72 bg-white bg-opacity-60 rounded-lg mt-8 flex flex-wrap items-start justify-center md:grid-cols-2 gap-12">
       <div className="flex flex-col">
             <img src="/img/What_is_pilates_desktop.jpg" className="w-full max-w-md mb-4"/>
         <div className="infos text-sm font-extralight flex flex-col gap-2">
@@ -233,10 +233,17 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
         <button type="submit" className="h-10 w-96 text-center text-white font-semibold text-xl bg-custom-button rounded-2xl hover:bg-hover-color duration-300">Submit</button>
      </div>
       </section>
+    </div>
+      
+      <footer className="h-10 max-w-screen bg-custom-button text-custom-pink text-opacity-60 text-sm font-sans flex justify-center items-center">
+        <p>Copyright 2025 Website by{' '} 
+        <a href="https://instagram.com/sleepymolecule" target="_blank" rel="noopener noreferrer" className="text-purple-400">VincyLe</a>
+        </p>
+        </footer>
 
          <div className="flex justify-center items-center">
           {showButton && (
-      <button className= "fixed bottom-2 h-16 w-16 rounded-full border-2 border-hover-color hover:border-white duration-300 flex justify-center items-center" onClick={scrollToTop}>
+      <button className= "fixed bottom-4 md:bottom-11 h-16 w-16 rounded-full border-2 border-hover-color hover:border-white duration-300 flex justify-center items-center" onClick={scrollToTop}>
        <img src="/img\Vector.svg" className="h-6 w-6"/>
         </button>
         )}
