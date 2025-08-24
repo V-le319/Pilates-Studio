@@ -163,7 +163,7 @@ const ClassesPage = () => {
           
           <div className="flex justify-center items-center">
          {showButton && (
-            <button className= "fixed bottom-11 h-16 w-16 rounded-full border-2 border-hover-color hover:border-white duration-300 flex justify-center items-center" onClick={scrollToTop}>
+            <button className= "fixed bottom-4 md:bottom-11 h-16 w-16 rounded-full border-2 border-hover-color hover:border-white duration-300 flex justify-center items-center" onClick={scrollToTop}>
                 <img src="/img\Vector.svg" className="h-6 w-6"/>
             </button>
             )}
