@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Pilates-Studio/static/css/main.8fea616f.css",
+    "main.js": "/Pilates-Studio/static/js/main.ab23542e.js",
+    "static/js/453.cb49ecd9.chunk.js": "/Pilates-Studio/static/js/453.cb49ecd9.chunk.js",
+    "index.html": "/Pilates-Studio/index.html",
+    "main.8fea616f.css.map": "/Pilates-Studio/static/css/main.8fea616f.css.map",
+    "main.ab23542e.js.map": "/Pilates-Studio/static/js/main.ab23542e.js.map",
+    "453.cb49ecd9.chunk.js.map": "/Pilates-Studio/static/js/453.cb49ecd9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8fea616f.css",
+    "static/js/main.ab23542e.js"
+  ]
+}
