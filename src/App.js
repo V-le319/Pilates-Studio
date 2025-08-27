@@ -1,7 +1,7 @@
 
 import './App.css';
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import ClassesPage from './classesPage';
 
@@ -113,7 +113,7 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
     </div>
         <div className="relative inline-block">
             <p className="p-2 text-sm md:text-base flex items-center justify-center absolute top-3 py-1 rounded-tr-xl rounded-br-xl bg-white bg-opacity-60">Intermediate</p>
-        <img src="/img/1200.png" className=" block h-auto max-w-full"/>
+        <img src={`${process.env.PUBLIC_URL}/img/1200.png`} className=" block h-auto max-w-full"/>
 
         <HashLink to="/classesPage#class2">
           <button className="absolute bottom-3 right-3 px-3 py-1 md:px-4 md:py-2 bg-custom-pink hover:bg-custom-button duration-300 rounded-full flex items-center justify-center"> 
