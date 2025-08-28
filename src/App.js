@@ -96,7 +96,7 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
         <div className="classes-container grid grid-cols-3 gap-4 p-4">
           <div className="relative inline-block">
             <p className="p-2 text-sm md:text-base flex items-center justify-center absolute top-3 py-1 rounded-tr-xl rounded-br-xl bg-white bg-opacity-60">Beginner</p>
-        <img src="/img/Yoga Pose Close-Up.png" className=" block h-auto max-w-full"/>
+        <img src={`${process.env.PUBLIC_URL}/img/Yoga Pose Close-Up.png`} className=" block h-auto max-w-full"/>
               
               <HashLink to="/classesPage#class1">
                 <button className="absolute bottom-3 right-3 px-3 py-1 md:px-4 md:py-2 bg-custom-pink hover:bg-custom-button duration-300 rounded-full flex items-center justify-center">
@@ -136,7 +136,7 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
         
         <div className="relative inline-block">
             <p className="p-2 text-sm md:text-base flex items-center justify-center absolute top-3 py-1 rounded-tr-xl rounded-br-xl bg-white bg-opacity-60">Advanced</p>
-        <img src="/img/Yoga Pose in Sage Green.png" className=" block h-auto max-w-full"/>
+        <img src={`${process.env.PUBLIC_URL}/img/Yoga Pose in Sage Green.png`} className=" block h-auto max-w-full"/>
         
         <HashLink to="/classesPage#class3">
           <button className="absolute bottom-3 right-3 px-3 py-1 md:px-4 md:py-2 bg-custom-pink hover:bg-custom-button duration-300 rounded-full flex items-center justify-center">
@@ -189,27 +189,27 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
       
     <section className="contact max-w-screen py-10 px-4 min-h-72 bg-white bg-opacity-60 rounded-lg mt-8 flex flex-wrap items-start justify-center md:grid-cols-2 gap-12">
       <div className="flex flex-col">
-            <img src="/img/What_is_pilates_desktop.jpg" className="w-full max-w-md mb-4"/>
+            <img src={`${process.env.PUBLIC_URL}/img/What_is_pilates_desktop.jpg`} className="w-full max-w-md mb-4"/>
         <div className="infos text-sm font-extralight flex flex-col gap-2">
           <h3 className="font-sans text-2xl text-arrow-color pb-2">Let's Connect!</h3>
           <div className="flex gap-4">
-            <img src="/img\home.png" className="h-5 w-5"/>
+            <img src={`${process.env.PUBLIC_URL}/img/home.png`} className="h-5 w-5"/>
             <p>1257 Willow Street, Suite 302, San Diego, CA 92103</p>
           </div>
           <div className="flex gap-4">
-            <img src="/img\phone.png" className="h-5 w-5"/>
+            <img src={`${process.env.PUBLIC_URL}/img/phone.png`} className="h-5 w-5"/>
             <p>(619) 555-8721</p>
           </div>
           <div className="flex gap-4">
-            <img src="/img\@.png" className="h-5 w-5"/>
+            <img src={`${process.env.PUBLIC_URL}/img/@.png`} className="h-5 w-5"/>
             <p>www.corebalancepilates.com</p>
             </div>
           <div className="flex gap-4">
-            <img src="/img\fb.png" className="h-5 w-5"/>
+            <img src={`${process.env.PUBLIC_URL}/img/fb.png`} className="h-5 w-5"/>
             <p>corebalancepilates</p>
           </div>
           <div className="flex gap-4">
-            <img src="/img\logo-instagram 1.png" className="h-5 w-5"/>
+            <img src={`${process.env.PUBLIC_URL}/img/logo-instagram 1.png`} className="h-5 w-5"/>
             <p>@corebalancepilates</p>
         </div>
       </div>
@@ -245,7 +245,7 @@ Our personalized approach ensures your Pilates journey is tailored to your needs
          <div className="flex justify-center items-center">
           {showButton && (
       <button className= "fixed bottom-4 md:bottom-11 h-16 w-16 rounded-full border-2 border-hover-color hover:border-white duration-300 flex justify-center items-center" onClick={scrollToTop}>
-       <img src="/img\Vector.svg" className="h-6 w-6"/>
+       <img src={`${process.env.PUBLIC_URL}/img/Vector.svg`} className="h-6 w-6"/>
         </button>
         )}
         </div>
