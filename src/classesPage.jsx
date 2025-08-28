@@ -7,32 +7,32 @@ const ClassesPage = () => {
         const Instructors = [
             {
                 name:"Ava" ,
-                img:"/img/Athletic Woman Portrait.png",
+                img: `${process.env.PUBLIC_URL}/img/Athletic Woman Portrait.png`,
                 bio:"Certified in STOTT Pilates® Matwork & Reformer, Ava brings over 8 years of experience in rehabilitative and athletic Pilates. She specializes in posture correction and pre/post-natal care.",
             },
             {
                 name:"Kat" ,
-                img:"/img/Woman by the Sea.png",
+                img: `${process.env.PUBLIC_URL}/img/Woman by the Sea.png`,
                 bio:"Kat holds a BASI Pilates® Comprehensive Certification and is a licensed sports therapist. She combines functional movement with Pilates to support injury recovery and athletic performance.",
             },
             {
                 name:"Natalie" ,
-                img:"/img/Woman Practicing Yoga.png",
+                img:`${process.env.PUBLIC_URL}/img/Woman Practicing Yoga.png`,
                 bio:"Natalie is a Peak Pilates® Level II Certified Instructor with additional training in barre and yoga. She focuses on mindful movement and flexibility for all levels.",
             },
             {
                 name:"Maya" ,
-                img:"/img/Elegant Studio Portrait.png",
+                img:`${process.env.PUBLIC_URL}/img/Elegant Studio Portrait.png`,
                 bio:"With Polestar Pilates® Studio Certification and a background in dance, Maya blends fluid, precise movement with core strength training. She’s passionate about spine health and mobility.",
             },
             {
                 name:"Olivia" ,
-                img:"/img/Serene Woman in Athletic Wear.png",
+                img:`${process.env.PUBLIC_URL}/img/Serene Woman in Athletic Wear.png`,
                 bio:"Oliviais comprehensively certified through Balanced Body® and holds a degree in Kinesiology. She specializes in Pilates for both men and women.",
             },
             {
                 name:"Sophie" , 
-                img:"/img/Focused Fitness Activity.png",
+                img:`${process.env.PUBLIC_URL}/img/Focused Fitness Activity.png`,
                 bio:"Sphie is a Power Pilates® Certified Instructor and licensed physiotherapist. She integrates clinical knowledge with classical Pilates to support clients with chronic pain and post-surgical rehab.",
             },
         ];
@@ -76,7 +76,7 @@ const ClassesPage = () => {
      <main className="px-4"> 
         <div id="classes" className="classes min-h-[600px] md:h-screen py-10 px-2 bg-white bg-opacity-60 h-auto max-w-full rounded-lg flex flex-col gap-10 items-stretch md:grid md:grid-cols-3">
             <section id="class1" className="grid grid-cols-2 gap-4 h-auto w-auto ">
-                    <img src="/img/Yoga Pose Close-Up.png" className="w-full h-full object-cover max-h-[400px] rounded-lg"/>
+                    <img src={`${process.env.PUBLIC_URL}/img/Yoga Pose Close-Up.png`} className="w-full h-full object-cover max-h-[400px] rounded-lg"/>
                 <div>
                     <h1 className="text-lg h-10 rounded-lg bg-hover-color bg-opacity-40 font-sans font-light flex justify-center items-center">Beginner</h1>
                 <div className="class1 font-extralight text-sm font-sans">
@@ -97,7 +97,7 @@ const ClassesPage = () => {
             </section>
             
             <section id="class2" className="grid grid-cols-2 gap-4 h-auto w-auto">
-                    <img src="/img/1200.png" className="w-full h-full object-cover max-h-[400px] rounded-lg"/>
+                    <img src={`${process.env.PUBLIC_URL}/img/1200.png`} className="w-full h-full object-cover max-h-[400px] rounded-lg"/>
                 <div>
                     <h1 className="text-lg h-10 rounded-lg bg-hover-color bg-opacity-40 font-sans font-light flex justify-center items-center">Intermediate</h1>
                 <div className="class1 font-extralight text-sm font-sans">
@@ -118,7 +118,7 @@ const ClassesPage = () => {
             </section>
             
             <section id="class3" className="grid grid-cols-2 gap-4 h-auto w-auto">
-                    <img src="/img/Yoga Pose in Sage Green.png" className="w-full h-full object-cover max-h-[400px] rounded-lg"/>
+                    <img src={`${process.env.PUBLIC_URL}/img/Yoga Pose in Sage Green.png`} className="w-full h-full object-cover max-h-[400px] rounded-lg"/>
                 <div>
                     <h1 className="text-lg h-10 rounded-lg bg-hover-color bg-opacity-40 font-sans font-light flex justify-center items-center">Advanced</h1>
                 <div className="class1 font-extralight text-sm font-sans">
@@ -164,7 +164,7 @@ const ClassesPage = () => {
           <div className="flex justify-center items-center">
          {showButton && (
             <button className= "fixed bottom-4 md:bottom-11 h-16 w-16 rounded-full border-2 border-hover-color hover:border-white duration-300 flex justify-center items-center" onClick={scrollToTop}>
-                <img src="/img\Vector.svg" className="h-6 w-6"/>
+                <img src={`${process.env.PUBLIC_URL}/img/Vector.svg`} className="h-6 w-6"/>
             </button>
             )}
         </div>
