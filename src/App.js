@@ -6,7 +6,7 @@ import { HashLink } from 'react-router-hash-link';
 import ClassesPage from './classesPage';
 
 const heroBgStyle = {
-  backgroundImage: "url('/img/421b324a8b94fb619221b444f637dad7.jpg')",
+  backgroundImage: `url(${process.env.PUBLIC_URL}/img/421b324a8b94fb619221b444f637dad7.jpg)`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
@@ -14,12 +14,13 @@ const heroBgStyle = {
 function App() {
 
     const Instructors = [
-        {name:"Ava" ,img:"/img/Athletic Woman Portrait.png"},
-         {name:"Kat" ,img:"/img/Woman by the Sea.png"},
-          {name:"Natalie" ,img:"/img/Woman Practicing Yoga.png"},
-           {name:"Maya" ,img:"/img/Elegant Studio Portrait.png"},
-            {name:"Olivia" ,img:"/img/Serene Woman in Athletic Wear.png"},
-              {name:"Sophie" , img:"/img/Focused Fitness Activity.png"},
+        {name:"Ava", img: `${process.env.PUBLIC_URL}/img/Athletic Woman Portrait.png`},
+        {name:"Kat", img: `${process.env.PUBLIC_URL}/img/Woman by the Sea.png`},
+        {name:"Natalie", img: `${process.env.PUBLIC_URL}/img/Woman Practicing Yoga.png`},
+        {name:"Maya", img: `${process.env.PUBLIC_URL}/img/Elegant Studio Portrait.png`},
+        {name:"Olivia", img: `${process.env.PUBLIC_URL}/img/Serene Woman in Athletic Wear.png`},
+        {name:"Sophie", img: `${process.env.PUBLIC_URL}/img/Focused Fitness Activity.png`},
+
     ];
 
         const[showButton, setShowButton] = useState(false);
